@@ -132,7 +132,57 @@ public class XMLmanager {
         Document doc = convertStringToXMLDocument( xmlStr );
 
     }
-    
+    public static List<Album> extractAlbum(Document doc, Album album) {
+        ArrayList<Album> albumArray = new ArrayList<>();
+        NodeList albums = doc.getElementsByTagName("album");
+        for (int i = 0; i < albums.getLength(); i++) {
+            System.out.println("number of album : " + i);
+            Node node = albums.item(i);
+            List<Chanson> chansons = new ArrayList<Chanson>();
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element) node;
+
+                album.setTitre(element.getElementsByTagName("titre").item(0).getTextContent());
+                album.setId(element.getElementsByTagName("id").item(0).getTextContent());
+                album.setArtiste(element.getElementsByTagName("artiste").item(0).getTextContent());
+                album.setDuree(Integer.parseInt(element.getElementsByTagName("duree").item(0).getTextContent()));
+                Node nodeChanson = element.getElementsByTagName("chansons").item(0);
+                System.out.println(nodeChanson.getTextContent());
+                Element elementChanson = (Element) nodeChanson;
+                NodeList nodeChansons = elementChanson.getElementsByTagName("chanson");
+                System.out.println("nombre de chansons :" + nodeChansons.getLength());
+                for (int j = 0; j < nodeChansons.getLength(); j++) {
+                    Node node1 = nodeChansons.item(j);
+                    if (node1.getNodeType() == Node.ELEMENT_NODE) {
+                        Element element1 = (Element) node1;
+                        Chanson chanson = new Chanson();
+                        chanson.setTitre(element1.getElementsByTagName("titre").item(0).getTextContent());
+                        chanson.setId(element1.getElementsByTagName("id").item(0).getTextContent());
+                        chanson.setDuree(Integer.parseInt(element1.getElementsByTagName("duree").item(0).getTextContent()));
+                        chanson.setArtiste(element1.getElementsByTagName("artiste").item(0).getTextContent());
+                        String genre = element1.getElementsByTagName("genre").item(0).getTextContent();
+                        if (genre == "Pop")
+                            chanson.setGenre(Genre.POP);
+                        else if (genre == "Jazz")
+                            chanson.setGenre(Genre.JAZZ);
+                        else if (genre == "classique")
+                            chanson.setGenre(Genre.CLASSIQUE);
+                        else if (genre == "Hip-Hop")
+                            chanson.setGenre(Genre.HIP_HOP);
+                        else if (genre == "Rock")
+                            chanson.setGenre(Genre.ROCK);
+                        else if (genre == "Rap")
+                            chanson.setGenre(Genre.RAP);
+                        chansons.add(chanson);
+
+                    }
+                }
+                album.setChansons(chansons);
+                albumArray.add(album);
+            }
+        }
+        return albumArray;
+    }
 
 
     private static Document convertStringToXMLDocument(String xmlString)
