@@ -126,7 +126,13 @@ public class XMLmanager {
                 "    </chansons>\n" +
                 "  </album>\n" +
                 "</albums>";
+
+
+        //Use method to convert XML string content to XML Document object
+        Document doc = convertStringToXMLDocument( xmlStr );
+
     }
+    
 
 
     private static Document convertStringToXMLDocument(String xmlString)
