@@ -1,0 +1,72 @@
+@startuml
+!define LIGHTBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class Server {
+-pool : static ExecutorService
+-clients : static ArrayList<ClientHandler>
+
++ static void main(String arg[]);
+}
+
+class ClientHandler {
+    -in : BufferedReader
+    -out : PrintWriter
+    -socket : Socket
+    -reqManager : RequestManager
+    -client: Client
+    -album : Album
+    -playlist : PlayList
+    -chanson : Chanson
+    -livreaudio : LivreAudio
+    + void run()
+}
+
+class RequestManager{
+    -signInValid : boolean
+    -signUpValid : boolean
+    + RequestManager(client: Client, a : Album, p : PlayList, c : Chanson, l : LivreAudio)
+    + void signIn( socket : Socket)
+    + void signUp ( socket : Socket)
+    - void Home ( socket : Socket)
+    - void sendPlaylist ( socket : Socket)
+    - void sendSong ( socket : Socket)
+    - void sendAlbum ( socket : Socket)
+}
+
+class Validator{
++ valEmail(input : String) : static boolean
+}
+
+interface Runnable{
++ run()
+}
+
+package "SQLqueries" {
+
+}
+
+package "userModels" {
+    class Client
+}
+
+package "audioModels"{
+}
+package "fileTransfert"{
+}
+package "XMLmanager"{
+}
+package "soundAPI"{
+}
+
+ClientHandler ..|> Runnable : implemente
+ClientHandler -- RequestManager : utlise
+ClientHandler -- Client : utlise
+ClientHandler -- audioModels : utilise
+Server *-- ClientHandler : contient
+RequestManager -- Validator : utilise
+RequestManager -- SQLqueries : utilise
+RequestManager -- fileTransfert : utilise
+RequestManager -- XMLmanager : utilise
+RequestManager -- soundAPI : utilise
+@enduml
