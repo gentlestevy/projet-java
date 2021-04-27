@@ -1,19 +1,11 @@
 package XMLmanager;
 
-import audioModels.Album;
-import audioModels.Chanson;
-import audioModels.Genre;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class XMLmanager {
 
@@ -134,66 +126,8 @@ public class XMLmanager {
                 "    </chansons>\n" +
                 "  </album>\n" +
                 "</albums>";
-
-        //Use method to convert XML string content to XML Document object
-        Document doc = convertStringToXMLDocument( xmlStr );
-        NodeList albums =  doc.getElementsByTagName("album");
-        for(int i =0;i<albums.getLength();i++) {
-            Node node = albums.item(i);
-            List<Chanson> chansons = new ArrayList<Chanson>();
-            if (node.getNodeType() == Node.ELEMENT_NODE) {
-
-                Element element = (Element) node;
-
-                Album album = new Album();
-                album.setTitre(element.getElementsByTagName("titre").item(0).getTextContent());
-                album.setId(element.getElementsByTagName("id").item(0).getTextContent());
-                album.setArtiste(element.getElementsByTagName("artiste").item(0).getTextContent());
-                album.setDuree(Integer.parseInt(element.getElementsByTagName("duree").item(0).getTextContent()));
-
-                NodeList nodeChansons = element.getElementsByTagName("chansons").item(0).getChildNodes();
-
-                for (int j = 0; i < nodeChansons.getLength(); i++) {
-                    Node node1 = nodeChansons.item(j);
-                    if (node1.getNodeType() == Node.ELEMENT_NODE) {
-                        Element element1 = (Element) node1;
-                        Chanson chanson = new Chanson();
-
-                        chanson.setTitre(element1.getElementsByTagName("titre").item(0).getTextContent());
-                        chanson.setId(element1.getElementsByTagName("id").item(0).getTextContent());
-                        chanson.setDuree(Integer.parseInt(element1.getElementsByTagName("duree").item(0).getTextContent()));
-                        chanson.setArtiste(element1.getElementsByTagName("artiste").item(0).getTextContent());
-
-                        String genre = element1.getElementsByTagName("genre").item(0).getTextContent();
-
-                        if (genre == "Pop") {
-                            chanson.setGenre(Genre.POP);
-                        } else if (genre == "Jazz") {
-                            chanson.setGenre(Genre.JAZZ);
-                        } else if (genre == "classique") {
-                            chanson.setGenre(Genre.CLASSIQUE);
-
-                        } else if (genre == "Hip-Hop") {
-                            chanson.setGenre(Genre.HIP_HOP);
-
-                        } else if (genre == "Rock") {
-                            chanson.setGenre(Genre.ROCK);
-
-                        } else if (genre == "Rap") {
-                            chanson.setGenre(Genre.RAP);
-                        }
-                        chansons.add(chanson);
-                    }
-                }
-                album.setChansons(chansons);
-            }
-
-        }
     }
-    public Album extractAlbum(String s, Album a){
-        ArrayList<Album> albumArray = new ArrayList<>();
-        return a;
-    }
+
 
     private static Document convertStringToXMLDocument(String xmlString)
     {
