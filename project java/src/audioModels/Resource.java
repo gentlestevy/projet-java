@@ -9,6 +9,8 @@ public class Resource {
 
   protected ResourceType type;
 
+  protected  String chemin;
+
   public String getTitre() {
     return titre;
   }
