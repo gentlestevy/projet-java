@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class client {
+public class Client {
     @SuppressWarnings("resource")
     public static void main(String[] args) throws UnknownHostException, IOException {
         Socket sock = new Socket("localhost", 3456);
