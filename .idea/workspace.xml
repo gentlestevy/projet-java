@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26d6e3c9-2578-4d59-9018-a5c79959032c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/project java/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/Server.java" afterDir="false" />
-    </list>
+    <list default="true" id="26d6e3c9-2578-4d59-9018-a5c79959032c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1rl58N09R9L7WQK0tpmYlfxkdDL" />
   <component name="ProjectViewState">
