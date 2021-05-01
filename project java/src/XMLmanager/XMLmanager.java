@@ -135,8 +135,10 @@ public class XMLmanager {
                 "  </album>\n" +
                 "</albums>";
 
+
         //Use method to convert XML string content to XML Document object
         Document doc = convertStringToXMLDocument( xmlStr );
+
     }
     public static List<Album> extractAlbum(Document doc, Album album) {
         ArrayList<Album> albumArray = new ArrayList<>();
@@ -189,6 +191,7 @@ public class XMLmanager {
         }
         return albumArray;
     }
+
 
     private static Document convertStringToXMLDocument(String xmlString)
     {
