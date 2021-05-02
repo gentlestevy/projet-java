@@ -1,0 +1,29 @@
+// Mettre les données dans un fichier xml
+
+public class XMLWrite  
+{  
+  
+   static void Main(string[] args)  
+    {  
+        WriteXML();  
+    }  
+  
+    public class playlist  
+    {  
+        public String title;
+    }  
+  
+    public static void WriteXML()  
+    {  
+        Book overview = new playlist();  
+        overview.title = "Serialization Overview";  
+        System.Xml.Serialization.XmlSerializer writer =
+            new System.Xml.Serialization.XmlSerializer(typeof(playlist));  
+  
+        var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//SerializationOverview.xml";  
+        System.IO.FileStream file = System.IO.File.Create(path);  
+  
+        writer.Serialize(file, overview);  
+        file.Close();  
+    }  
+}  
