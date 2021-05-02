@@ -450,7 +450,237 @@ public class XMLmanager {
 
         return livreAudioLists;
     }
+    public static Document writeAlbum(List<Album> albums) throws ParserConfigurationException {
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc = docBuilder.newDocument();
+        Element root;
 
+        root = doc.createElement("albums");
+        doc.appendChild(root);
+
+
+        for (int i = 0; i < albums.size(); i++) {
+            Element album = doc.createElement("album");
+            Element id = doc.createElement("id");
+            id.appendChild(doc.createTextNode(albums.get(i).getId()));
+            album.appendChild(id);
+
+            Element duree = doc.createElement("duree");
+            duree.appendChild(doc.createTextNode(Integer.toString(albums.get(i).getDuree())));
+            album.appendChild(duree);
+
+            Element artiste = doc.createElement("artiste");
+            artiste.appendChild(doc.createTextNode(albums.get(i).getArtiste()));
+            album.appendChild(artiste);
+
+            Element dateDeSortie = doc.createElement("dateDeSortie");
+            dateDeSortie.appendChild(doc.createTextNode(albums.get(i).getDateDeSortie().toString()));
+            album.appendChild(dateDeSortie);
+
+            for (int j = 0; j < albums.get(i).getChansons().size(); j++) {
+                List<Chanson> chansons = albums.get(i).getChansons();
+                Element chanson = doc.createElement("chanson");
+                album.appendChild(chanson);
+
+                Element idChans = doc.createElement("id");
+                idChans.appendChild(doc.createTextNode(chansons.get(j).getId()));
+                chanson.appendChild(idChans);
+
+                Element dureeChans = doc.createElement("duree");
+                dureeChans.appendChild(doc.createTextNode(Integer.toString(chansons.get(j).getDuree())));
+                chanson.appendChild(dureeChans);
+
+                Element artisteChans = doc.createElement("artiste");
+                artisteChans.appendChild(doc.createTextNode(chansons.get(j).getArtiste()));
+                chanson.appendChild(artisteChans);
+
+                Element genre = doc.createElement("genre");
+                genre.appendChild(doc.createTextNode(chansons.get(j).getGenre().toString()));
+                chanson.appendChild(genre);
+            }
+
+
+        }
+        return doc;
+    }
+
+    public static Document writePlaylist(List<PlayList> playLists) throws ParserConfigurationException {
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc = docBuilder.newDocument();
+        Element root;
+
+        root = doc.createElement("playLists");
+        doc.appendChild(root);
+
+
+        for (int i = 0; i < playLists.size(); i++) {
+            Element playList = doc.createElement("playList");
+            Element id = doc.createElement("");
+            id.appendChild(doc.createTextNode(playLists.get(i).getId()));
+            playList.appendChild(id);
+
+            Element nom = doc.createElement("nom");
+            nom.appendChild(doc.createTextNode(playLists.get(i).getNom()));
+            playList.appendChild(nom);
+
+
+            for (int j = 0; j < playLists.get(i).getChansons().size(); j++) {
+                List<Chanson> chansons = playLists.get(i).getChansons();
+                Element chanson = doc.createElement("chanson");
+                playList.appendChild(chanson);
+
+                Element idChans = doc.createElement("");
+                idChans.appendChild(doc.createTextNode(chansons.get(j).getId()));
+                chanson.appendChild(id);
+
+                Element dureeChans = doc.createElement("duree");
+                dureeChans.appendChild(doc.createTextNode(Integer.toString(chansons.get(j).getDuree())));
+                chanson.appendChild(dureeChans);
+
+                Element artisteChans = doc.createElement("artiste");
+                artisteChans.appendChild(doc.createTextNode(chansons.get(j).getArtiste()));
+                chanson.appendChild(artisteChans);
+
+                Element genre = doc.createElement("genre");
+                genre.appendChild(doc.createTextNode(chansons.get(j).getGenre().toString()));
+                chanson.appendChild(genre);
+            }
+            for (int j = 0; j < playLists.get(i).getLivreAudios().size(); j++) {
+                List<LivreAudio> livreAudios = playLists.get(i).getLivreAudios();
+
+                Element elivreAudio = doc.createElement("livreAudio");
+                playList.appendChild(elivreAudio);
+
+                Element idL = doc.createElement("");
+                idL.appendChild(doc.createTextNode(livreAudios.get(j).getId()));
+                elivreAudio.appendChild(idL);
+
+                Element duree = doc.createElement("duree");
+                duree.appendChild(doc.createTextNode(Integer.toString(livreAudios.get(j).getDuree())));
+                elivreAudio.appendChild(duree);
+
+                Element auteur = doc.createElement("auteur");
+                auteur.appendChild(doc.createTextNode(livreAudios.get(j).getAuteur()));
+                elivreAudio.appendChild(auteur);
+
+                Element categorie = doc.createElement("categorie");
+                categorie.appendChild(doc.createTextNode(livreAudios.get(j).getCategorie().toString()));
+                elivreAudio.appendChild(categorie);
+
+
+                Element langue = doc.createElement("langue");
+                langue.appendChild(doc.createTextNode(livreAudios.get(j).getLangue().toString()));
+                elivreAudio.appendChild(langue);
+                ;
+            }
+
+
+        }
+        return doc;
+    }
+
+    public static Document writeLivreAudio(List<LivreAudio> livreAudios) throws ParserConfigurationException {
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc = docBuilder.newDocument();
+        Element elements;
+
+        elements = doc.createElement("elements");
+        doc.appendChild(elements);
+
+
+        for (LivreAudio livreAudio : livreAudios) {
+            Element elivreAudio = doc.createElement("livreAudio");
+            elements.appendChild(elivreAudio);
+
+            Element id = doc.createElement("");
+            id.appendChild(doc.createTextNode(livreAudio.getId()));
+            elivreAudio.appendChild(id);
+
+            Element duree = doc.createElement("duree");
+            duree.appendChild(doc.createTextNode(Integer.toString(livreAudio.getDuree())));
+            elivreAudio.appendChild(duree);
+
+            Element auteur = doc.createElement("auteur");
+            auteur.appendChild(doc.createTextNode(livreAudio.getAuteur()));
+            elivreAudio.appendChild(auteur);
+
+            Element categorie = doc.createElement("categorie");
+            categorie.appendChild(doc.createTextNode(livreAudio.getCategorie().toString()));
+            elivreAudio.appendChild(categorie);
+
+
+            Element langue = doc.createElement("langue");
+            langue.appendChild(doc.createTextNode(livreAudio.getLangue().toString()));
+            elivreAudio.appendChild(langue);
+        }
+        return doc;
+    }
+
+
+    public static Document writeChanson(List<Chanson> chansons) throws ParserConfigurationException {
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc = docBuilder.newDocument();
+        Element elements;
+
+        elements = doc.createElement("elements");
+        doc.appendChild(elements);
+
+
+        for (Chanson chanson : chansons) {
+            Element eChanson = doc.createElement("chanson");
+            elements.appendChild(eChanson);
+
+            Element id = doc.createElement("id");
+            id.appendChild(doc.createTextNode(chanson.getId()));
+            eChanson.appendChild(id);
+
+            Element duree = doc.createElement("duree");
+            duree.appendChild(doc.createTextNode(Integer.toString(chanson.getDuree())));
+            eChanson.appendChild(duree);
+
+            Element artiste = doc.createElement("artiste");
+            artiste.appendChild(doc.createTextNode(chanson.getArtiste()));
+            eChanson.appendChild(artiste);
+
+            Element genre = doc.createElement("genre");
+            genre.appendChild(doc.createTextNode(chanson.getGenre().toString()));
+            eChanson.appendChild(genre);
+        }
+        return doc;
+    }
+
+
+    public static Document convertStringToXMLDocument(String xmlString) {
+        //Parser that produces DOM object trees from XML content
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+        //API to obtain DOM Document instance
+        DocumentBuilder builder = null;
+        try {
+            //Create DocumentBuilder with default configuration
+            builder = factory.newDocumentBuilder();
+
+            //Parse the content to Document object
+            return builder.parse(new InputSource(new StringReader(xmlString)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String getStringFromDocument(Document doc) throws TransformerException, TransformerException {
+        DOMSource domSource = new DOMSource(doc);
+        StringWriter writer = new StringWriter();
+        StreamResult result = new StreamResult(writer);
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer transformer = tf.newTransformer();
+        transformer.transform(domSource, result);
+        return writer.toString();
+    }
 
 
 }
