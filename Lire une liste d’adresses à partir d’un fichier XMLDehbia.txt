@@ -1,0 +1,120 @@
+//à adapter pour le projet 
+// Lire une liste d’adresses à partir d’un fichier XML
+
+
+
+package ch.epaifribourg.ict.m100;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
+
+
+public class ContactManager {
+
+    private static class palyL {
+        int id;
+        String titre = "";
+        String artiste = "";
+        String nomplayL = "";
+
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        // Initialise une chaîne de caractère avec le chemin du fichier XML.
+       
+        String filename = "C:\\Users\\Amazigh\\Documents\\data.xml";
+
+        // Crée un objet de type File avec le chemin du fichier XML.
+        File xmlFile = new File(filename);
+
+        // Charge les données des playL qui se trouvent dans le fichier XML
+        // dans un objet de type List de chanson et affecte une référence à cet
+        // objet à la variable playList.
+        List<Person> personList = loadPersonDataFromXml(xmlFile);
+
+        // Affiche le résultat dans la sortie standard (System.out).
+        printplayLList(System.out, playLList);
+    }
+
+    /**
+     * Charge les données des personnes qui se trouvent dans le fichier XML dans un objet 
+     * de type List de Person et renvoie l’objet.
+    
+     */
+    private static List<playL> loadPersonDataFromXml(File file) throws Exception {
+
+        // Crée un tableau dynamique.
+        List<playL> playLList = new ArrayList<>();
+
+        // Crée un objet Document qui représente les données du fichier XML
+        // sous la forme d’une hiérarchie d’objets de type Node. 
+
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(file);
+        doc.getDocumentElement().normalize();
+
+        // Recherche tous les elements <playL>
+        NodeList playLNodeList = doc.getElementsByTagName("playL");
+
+        // Pour chaque élément XML de la liste
+        for (int i = 0; i < playLNodeList.getLength(); i = i + 1) {
+            Node node = playLNodeList.item(i);
+
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+               
+                // Récupère l'élément
+                Element playLElement = (Element)node;
+
+                // Crée un nouvel objet de type Person
+                Person playL = new playL();
+
+                playL.id = Integer.parseInt(personElement.getAttribute("id"));
+                playL.titre = personElement.getElementsByTagName("titre").item(0).getTextContent();
+                playL.artiste = personElement.getElementsByTagName("artiste").item(0).getTextContent();
+                playL.nomplayL = personElement.getElementsByTagName("nomplayL").item(0).getTextContent();
+                
+                // Ajoute la personne à la liste
+                playLList.add(person);
+    
+            }
+        }
+
+        // Renvoie la référence à l’objet personList
+        return playLList;
+    }
+
+    /**
+     * Ecrit les élément d’une liste d'objet de type Person dans le flux de sortie
+     * passé en paramètre.
+    
+     */
+    private static void printPersonList(PrintStream out, List<Person> personList) {
+
+        for (int i = 0; i < playLList.size(); i = i + 1) {
+            playL playliste = playLList.get(i);
+            printplayL(out, playL);
+        }
+    }
+
+    /**
+     * Ecrit les données d’un objet de type Person dans le flux de sortie
+     * passé en paramètre
+     */
+    private static void printPerson(PrintStream out, Person person) {
+
+            out.printf("(%d) %s %s, %s,\n",
+                playL.id 
+                playL.titre 
+                playL.artiste 
+		playL.nomplay
+}
