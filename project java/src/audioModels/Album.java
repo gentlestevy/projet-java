@@ -1,6 +1,6 @@
 package audioModels;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Album {
@@ -12,7 +12,7 @@ public class Album {
 
   private int duree;
 
-  private Date dateDeSortie;
+  private LocalDate dateDeSortie;
 
   private String id;
 
@@ -48,11 +48,11 @@ public class Album {
     this.duree = duree;
   }
 
-  public Date getDateDeSortie() {
+  public LocalDate getDateDeSortie() {
     return dateDeSortie;
   }
 
-  public void setDateDeSortie(Date dateDeSortie) {
+  public void setDateDeSortie(LocalDate dateDeSortie) {
     this.dateDeSortie = dateDeSortie;
   }
 

@@ -1,7 +1,7 @@
 package audioModels;
 
 public enum Categorie {
-  JEUNESSE("Jeunesse"), ROMAN("Roman"), THEATRE("Th��tre"), DISCOURS("Discours"), DOCUMENTAIRE("Documentaire");
+  JEUNESSE("Jeunesse"), ROMAN("Roman"), THEATRE("Théâtre"), DISCOURS("Discours"), DOCUMENTAIRE("Documentaire");
 
   private String value;
 

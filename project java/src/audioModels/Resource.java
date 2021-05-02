@@ -1,45 +1,55 @@
 package audioModels;
 
 public class Resource {
-  protected String titre;
+    protected String titre;
 
-  protected int duree;
+    protected int duree;
 
-  protected String id;
+    protected String id;
 
-  protected ResourceType type;
+    protected ResourceType type;
 
-  protected  String chemin;
+    protected String chemin;
 
-  public String getTitre() {
-    return titre;
-  }
 
-  public void setTitre(String titre) {
-    this.titre = titre;
-  }
+    public String getTitre() {
+        return titre;
+    }
 
-  public int getDuree() {
-    return duree;
-  }
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
 
-  public void setDuree(int duree) {
-    this.duree = duree;
-  }
+    public int getDuree() {
+        return duree;
+    }
 
-  public String getId() {
-    return id;
-  }
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public String getId() {
+        return id;
+    }
 
-  public ResourceType getType() {
-    return type;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  public void setType(ResourceType type) {
-    this.type = type;
-  }
+    public ResourceType getType() {
+        return type;
+    }
+
+    public void setType(ResourceType type) {
+        this.type = type;
+    }
+
+    public String getChemin() {
+        return chemin;
+    }
+
+    public void setChemin(String chemin) {
+        this.chemin = chemin;
+    }
+
 }
