@@ -19,11 +19,11 @@ USE `jmusic`;
 
 -- Dumping structure for table jmusic.album
 CREATE TABLE IF NOT EXISTS `album` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(100) NOT NULL,
   `clientID` int(11) NOT NULL,
   `artiste` varchar(50) NOT NULL,
-  `duree` varchar(50) NOT NULL,
-  `dateDeSortie` varchar(50) NOT NULL,
+  `duree` int(11) NOT NULL DEFAULT 0,
+  `dateDeSortie` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK__client` (`clientID`),
   CONSTRAINT `FK__client` FOREIGN KEY (`clientID`) REFERENCES `client` (`id`)
@@ -33,20 +33,20 @@ CREATE TABLE IF NOT EXISTS `album` (
 
 -- Dumping structure for table jmusic.chanson
 CREATE TABLE IF NOT EXISTS `chanson` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` varchar(50) NOT NULL,
   `titre` varchar(50) NOT NULL,
   `duree` varchar(50) NOT NULL,
   `artiste` varchar(50) NOT NULL,
-  `genre` varchar(50) NOT NULL,
+  `genre` varchar(50) DEFAULT NULL,
   `type` varchar(50) NOT NULL,
-  `albumID` int(11) DEFAULT NULL,
-  `playlistID` int(11) DEFAULT NULL,
+  `albumID` varchar(100) DEFAULT NULL,
+  `playlistID` varchar(100) DEFAULT NULL,
   `clientID` int(11) NOT NULL,
   `chemin` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_chanson_album` (`albumID`),
-  KEY `FK_chanson_playlist` (`playlistID`),
   KEY `FK_chanson_client` (`clientID`),
+  KEY `FK_chanson_playlist` (`playlistID`),
+  KEY `FK_chanson_album` (`albumID`),
   CONSTRAINT `FK_chanson_album` FOREIGN KEY (`albumID`) REFERENCES `album` (`id`),
   CONSTRAINT `FK_chanson_client` FOREIGN KEY (`clientID`) REFERENCES `client` (`id`),
   CONSTRAINT `FK_chanson_playlist` FOREIGN KEY (`playlistID`) REFERENCES `playlist` (`id`)
@@ -65,25 +65,25 @@ CREATE TABLE IF NOT EXISTS `client` (
   `address` varchar(50) DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 
 -- Dumping structure for table jmusic.livreaudio
 CREATE TABLE IF NOT EXISTS `livreaudio` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(50) NOT NULL,
   `titre` varchar(50) NOT NULL,
   `duree` varchar(50) NOT NULL,
   `auteur` varchar(50) NOT NULL,
   `langue` varchar(50) NOT NULL,
   `categorie` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
-  `playlistID` int(11) DEFAULT NULL,
+  `playlistID` varchar(100) DEFAULT NULL,
   `clientID` int(11) NOT NULL,
   `chemin` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_livreaudio_playlist` (`playlistID`),
   KEY `FK_livreaudio_client` (`clientID`),
+  KEY `FK_livreaudio_playlist` (`playlistID`),
   CONSTRAINT `FK_livreaudio_client` FOREIGN KEY (`clientID`) REFERENCES `client` (`id`),
   CONSTRAINT `FK_livreaudio_playlist` FOREIGN KEY (`playlistID`) REFERENCES `playlist` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `livreaudio` (
 
 -- Dumping structure for table jmusic.playlist
 CREATE TABLE IF NOT EXISTS `playlist` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(100) NOT NULL DEFAULT 'AUTO_INCREMENT',
   `nom` varchar(50) NOT NULL,
   `clientID` int(11) NOT NULL,
   PRIMARY KEY (`id`),
