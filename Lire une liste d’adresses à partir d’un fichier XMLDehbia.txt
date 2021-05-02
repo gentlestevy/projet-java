@@ -1,4 +1,6 @@
+//à adapter pour le projet 
 // Lire une liste d’adresses à partir d’un fichier XML
+
 
 
 package ch.epaifribourg.ict.m100;
@@ -17,35 +19,30 @@ import org.w3c.dom.Element;
 
 public class ContactManager {
 
-    private static class Person {
+    private static class palyL {
         int id;
-        String firstname = "";
-        String lastname = "";
-        String street = "";
-        String postalCode = "";
-        String city = "";
-        String email = "";
+        String titre = "";
+        String artiste = "";
+        String nomplayL = "";
+
     }
 
     public static void main(String[] args) throws Exception {
 
         // Initialise une chaîne de caractère avec le chemin du fichier XML.
-        // Attention : Les backslashes (\) du chemin Windows sont dédoublés
-        // car dans une chaîne de caractères, le backslash est le caractère
-        // d’échappement qui permet d’écrire des caractères spéciaux tels que
-        // \r (carriage return), \n (line feed) ou \t (tab).
-        String filename = "C:\\Users\\frossardj\\Documents\\data.xml";
+       
+        String filename = "C:\\Users\\Amazigh\\Documents\\data.xml";
 
         // Crée un objet de type File avec le chemin du fichier XML.
         File xmlFile = new File(filename);
 
-        // Charge les données des personnes qui se trouve dans le fichier XML
-        // dans un objet de type List de Person et affecte une référence à cet
-        // objet à la variable personList.
+        // Charge les données des playL qui se trouvent dans le fichier XML
+        // dans un objet de type List de chanson et affecte une référence à cet
+        // objet à la variable playList.
         List<Person> personList = loadPersonDataFromXml(xmlFile);
 
         // Affiche le résultat dans la sortie standard (System.out).
-        printPersonList(System.out, personList);
+        printplayLList(System.out, playLList);
     }
 
     /**
@@ -53,51 +50,47 @@ public class ContactManager {
      * de type List de Person et renvoie l’objet.
     
      */
-    private static List<Person> loadPersonDataFromXml(File file) throws Exception {
+    private static List<playL> loadPersonDataFromXml(File file) throws Exception {
 
         // Crée un tableau dynamique.
-        List<Person> personList = new ArrayList<>();
+        List<playL> playLList = new ArrayList<>();
 
         // Crée un objet Document qui représente les données du fichier XML
-        // sous la forme d’une hiérarchie d’objets de type Node. Un objet de
-        // type nœud peut représenter aussi bien un élément, qu’un nœud
-        // de texte ou un attribut.
+        // sous la forme d’une hiérarchie d’objets de type Node. 
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(file);
         doc.getDocumentElement().normalize();
 
-        // Recherche tous les elements <person>
-        NodeList personNodeList = doc.getElementsByTagName("person");
+        // Recherche tous les elements <playL>
+        NodeList playLNodeList = doc.getElementsByTagName("playL");
 
         // Pour chaque élément XML de la liste
-        for (int i = 0; i < personNodeList.getLength(); i = i + 1) {
-            Node node = personNodeList.item(i);
+        for (int i = 0; i < playLNodeList.getLength(); i = i + 1) {
+            Node node = playLNodeList.item(i);
 
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                
                 // Récupère l'élément
-                Element personElement = (Element)node;
+                Element playLElement = (Element)node;
 
                 // Crée un nouvel objet de type Person
-                Person person = new Person();
+                Person playL = new playL();
 
-                person.id = Integer.parseInt(personElement.getAttribute("id"));
-                person.firstname = personElement.getElementsByTagName("firstname").item(0).getTextContent();
-                person.lastname = personElement.getElementsByTagName("lastname").item(0).getTextContent();
-                person.postalCode = personElement.getElementsByTagName("postal-code").item(0).getTextContent();
-                person.street = personElement.getElementsByTagName("street").item(0).getTextContent();
-                person.city = personElement.getElementsByTagName("city").item(0).getTextContent();
-                person.email = personElement.getElementsByTagName("email").item(0).getTextContent();
+                playL.id = Integer.parseInt(personElement.getAttribute("id"));
+                playL.titre = personElement.getElementsByTagName("titre").item(0).getTextContent();
+                playL.artiste = personElement.getElementsByTagName("artiste").item(0).getTextContent();
+                playL.nomplayL = personElement.getElementsByTagName("nomplayL").item(0).getTextContent();
                 
                 // Ajoute la personne à la liste
-                personList.add(person);
+                playLList.add(person);
     
             }
         }
 
         // Renvoie la référence à l’objet personList
-        return personList;
+        return playLList;
     }
 
     /**
@@ -107,9 +100,9 @@ public class ContactManager {
      */
     private static void printPersonList(PrintStream out, List<Person> personList) {
 
-        for (int i = 0; i < personList.size(); i = i + 1) {
-            Person person = personList.get(i);
-            printPerson(out, person);
+        for (int i = 0; i < playLList.size(); i = i + 1) {
+            playL playliste = playLList.get(i);
+            printplayL(out, playL);
         }
     }
 
@@ -119,12 +112,9 @@ public class ContactManager {
      */
     private static void printPerson(PrintStream out, Person person) {
 
-            out.printf("(%d) %s %s, %s, %s %s\r\n",
-                    person.id,
-                    person.firstname,
-                    person.lastname,
-                    person.street,
-                    person.postalCode,
-                    person.city);
-    }
+            out.printf("(%d) %s %s, %s,\n",
+                playL.id 
+                playL.titre 
+                playL.artiste 
+		playL.nomplay
 }
