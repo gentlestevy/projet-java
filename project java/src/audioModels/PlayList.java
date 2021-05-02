@@ -54,4 +54,7 @@ public class PlayList {
   public void setNom(String nom) {
     this.nom = nom;
   }
+
+    public void setChansons(List<Chanson> chansons) {
+    }
 }
