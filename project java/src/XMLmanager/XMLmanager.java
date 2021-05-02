@@ -1,8 +1,6 @@
 package XMLmanager;
 
-import audioModels.Album;
-import audioModels.Chanson;
-import audioModels.Genre;
+import audioModels.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -12,208 +10,448 @@ import org.xml.sax.InputSource;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.StringReader;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class XMLmanager {
 
-    public static void main(String[] args) {
+    public static List<Album> extractAlbum(Document doc) {
 
-        final String xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" +
-                "<albums>\n" +
-                "  <album>\n" +
-                "    <titre>album-1</titre>\n" +
-                "    <id>18614281-469a-43be-9986-47711a9cab75</id>\n" +
-                "    <artiste>artiste-1</artiste>\n" +
-                "    <duree>1000</duree>\n" +
-                "    <dateDeSortie>20/12/2020</dateDeSortie>\n" +
-                "    <chansons/>\n" +
-                "  </album>\n" +
-                "  <album>\n" +
-                "    <titre>nrj12</titre>\n" +
-                "    <id>478e242f-75e5-4d40-a72c-31bc4b2b9a0f</id>\n" +
-                "    <artiste>shakira</artiste>\n" +
-                "    <duree>10000</duree>\n" +
-                "    <dateDeSortie>10/10/2016</dateDeSortie>\n" +
-                "    <chansons>\n" +
-                "      <chanson>\n" +
-                "        <titre>halo</titre>\n" +
-                "        <id>5a4c45eb-822b-4799-ac25-f9c23d43cea7</id>\n" +
-                "        <duree>200</duree>\n" +
-                "        <artiste>beyonce</artiste>\n" +
-                "        <genre>Pop</genre>\n" +
-                "      </chanson>\n" +
-                "      <chanson>\n" +
-                "        <titre>t</titre>\n" +
-                "        <id>40193e61-702e-4ed7-9885-9ec222981987</id>\n" +
-                "        <duree>1111</duree>\n" +
-                "        <artiste>qsd</artiste>\n" +
-                "        <genre>Jazz</genre>\n" +
-                "      </chanson>\n" +
-                "      <chanson>\n" +
-                "        <titre>djadja</titre>\n" +
-                "        <id>4ec7b59f-94ae-4b1e-8eb8-3bfceb2d3dfb</id>\n" +
-                "        <duree>200</duree>\n" +
-                "        <artiste>aya nakamura</artiste>\n" +
-                "        <genre>Pop</genre>\n" +
-                "      </chanson>\n" +
-                "      <chanson>\n" +
-                "        <titre>doudou</titre>\n" +
-                "        <id>71b1508d-59e9-4456-a029-015433f24726</id>\n" +
-                "        <duree>300</duree>\n" +
-                "        <artiste>aya nakamura</artiste>\n" +
-                "        <genre>Pop</genre>\n" +
-                "      </chanson>\n" +
-                "      <chanson>\n" +
-                "        <titre>akwesigh ami 3zizen</titre>\n" +
-                "        <id>d20101f7-8520-45da-af5e-2cbe618afe12</id>\n" +
-                "        <duree>300</duree>\n" +
-                "        <artiste>nouara</artiste>\n" +
-                "        <genre>Classique</genre>\n" +
-                "      </chanson>\n" +
-                "    </chansons>\n" +
-                "  </album>\n" +
-                "  <album>\n" +
-                "    <titre>pop2020</titre>\n" +
-                "    <id>f9cb242b-c4a8-4332-9090-aff88fda899c</id>\n" +
-                "    <artiste> vita</artiste>\n" +
-                "    <duree>200000</duree>\n" +
-                "    <dateDeSortie>10/10/2019</dateDeSortie>\n" +
-                "    <chansons>\n" +
-                "      <chanson>\n" +
-                "        <titre>kalimat</titre>\n" +
-                "        <id>6c87e1fa-a688-49ec-a2b3-faf10a80f98d</id>\n" +
-                "        <duree>500</duree>\n" +
-                "        <artiste>madjida romi</artiste>\n" +
-                "        <genre>Classique</genre>\n" +
-                "      </chanson>\n" +
-                "      <chanson>\n" +
-                "        <titre>Ghzali</titre>\n" +
-                "        <id>37445745-e91c-4491-b34d-f384c8d325eb</id>\n" +
-                "        <duree>500</duree>\n" +
-                "        <artiste>madjida romi</artiste>\n" +
-                "        <genre>Classique</genre>\n" +
-                "      </chanson>\n" +
-                "      <chanson>\n" +
-                "        <titre>je t'aime</titre>\n" +
-                "        <id>474a4189-fea0-4e16-ac8d-6a158527f548</id>\n" +
-                "        <duree>300</duree>\n" +
-                "        <artiste>lara fabian</artiste>\n" +
-                "        <genre>Pop</genre>\n" +
-                "      </chanson>\n" +
-                "      <chanson>\n" +
-                "        <titre>yema tassa</titre>\n" +
-                "        <id>397059a4-2f34-468e-9b4b-b5dc1ef9fa46</id>\n" +
-                "        <duree>200</duree>\n" +
-                "        <artiste>karima</artiste>\n" +
-                "        <genre>Pop</genre>\n" +
-                "      </chanson>\n" +
-                "    </chansons>\n" +
-                "  </album>\n" +
-                "  <album>\n" +
-                "    <titre>slimane</titre>\n" +
-                "    <id>f78082b3-ae60-41c3-a0e6-a3d996eea1d0</id>\n" +
-                "    <artiste> vita</artiste>\n" +
-                "    <duree>30000</duree>\n" +
-                "    <dateDeSortie>10/10/2020</dateDeSortie>\n" +
-                "    <chansons>\n" +
-                "      <chanson>\n" +
-                "        <titre>à fleur de toi</titre>\n" +
-                "        <id>382d7f26-c1d2-44a5-9f70-75dc0ca4233c</id>\n" +
-                "        <duree>200</duree>\n" +
-                "        <artiste>slimane &amp; vita</artiste>\n" +
-                "        <genre>Pop</genre>\n" +
-                "      </chanson>\n" +
-                "      <chanson>\n" +
-                "        <titre>dis le moi</titre>\n" +
-                "        <id>da618ce4-f7ce-4958-836b-d0b7d9955bae</id>\n" +
-                "        <duree>200</duree>\n" +
-                "        <artiste>slimane &amp; vita</artiste>\n" +
-                "        <genre>Pop</genre>\n" +
-                "      </chanson>\n" +
-                "    </chansons>\n" +
-                "  </album>\n" +
-                "</albums>";
-
-
-        //Use method to convert XML string content to XML Document object
-        Document doc = convertStringToXMLDocument( xmlStr );
-
-    }
-    public static List<Album> extractAlbum(Document doc, Album album) {
         ArrayList<Album> albumArray = new ArrayList<>();
         NodeList albums = doc.getElementsByTagName("album");
+
         for (int i = 0; i < albums.getLength(); i++) {
-            System.out.println("number of album : " + i);
+            Album album = new Album();
             Node node = albums.item(i);
             List<Chanson> chansons = new ArrayList<Chanson>();
             if (node.getNodeType() == Node.ELEMENT_NODE) {
+
                 Element element = (Element) node;
+
 
                 album.setTitre(element.getElementsByTagName("titre").item(0).getTextContent());
                 album.setId(element.getElementsByTagName("id").item(0).getTextContent());
+                //System.out.println(element.getElementsByTagName("id").item(0).getTextContent());
                 album.setArtiste(element.getElementsByTagName("artiste").item(0).getTextContent());
                 album.setDuree(Integer.parseInt(element.getElementsByTagName("duree").item(0).getTextContent()));
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                album.setDateDeSortie(LocalDate.parse(element.getElementsByTagName("dateDeSortie").item(0).getTextContent(), formatter));
+
                 Node nodeChanson = element.getElementsByTagName("chansons").item(0);
-                System.out.println(nodeChanson.getTextContent());
+
+
                 Element elementChanson = (Element) nodeChanson;
+
                 NodeList nodeChansons = elementChanson.getElementsByTagName("chanson");
-                System.out.println("nombre de chansons :" + nodeChansons.getLength());
                 for (int j = 0; j < nodeChansons.getLength(); j++) {
                     Node node1 = nodeChansons.item(j);
+
                     if (node1.getNodeType() == Node.ELEMENT_NODE) {
                         Element element1 = (Element) node1;
                         Chanson chanson = new Chanson();
+
                         chanson.setTitre(element1.getElementsByTagName("titre").item(0).getTextContent());
                         chanson.setId(element1.getElementsByTagName("id").item(0).getTextContent());
+
                         chanson.setDuree(Integer.parseInt(element1.getElementsByTagName("duree").item(0).getTextContent()));
                         chanson.setArtiste(element1.getElementsByTagName("artiste").item(0).getTextContent());
+
                         String genre = element1.getElementsByTagName("genre").item(0).getTextContent();
-                        if (genre == "Pop")
-                            chanson.setGenre(Genre.POP);
-                        else if (genre == "Jazz")
-                            chanson.setGenre(Genre.JAZZ);
-                        else if (genre == "classique")
-                            chanson.setGenre(Genre.CLASSIQUE);
-                        else if (genre == "Hip-Hop")
-                            chanson.setGenre(Genre.HIP_HOP);
-                        else if (genre == "Rock")
-                            chanson.setGenre(Genre.ROCK);
-                        else if (genre == "Rap")
-                            chanson.setGenre(Genre.RAP);
+
+                        switch (genre) {
+                            case "Pop":
+                                chanson.setGenre(Genre.POP);
+                                break;
+                            case "Jazz":
+                                chanson.setGenre(Genre.JAZZ);
+                                break;
+                            case "Classique":
+                                chanson.setGenre(Genre.CLASSIQUE);
+                                break;
+                            case "Hip-Hop":
+                                chanson.setGenre(Genre.HIP_HOP);
+                                break;
+                            case "Rock":
+                                chanson.setGenre(Genre.ROCK);
+                                break;
+                            case "Rap":
+                                chanson.setGenre(Genre.RAP);
+                                break;
+                        }
+
                         chansons.add(chanson);
 
+
                     }
+
+
                 }
                 album.setChansons(chansons);
-                albumArray.add(album);
+
+
             }
+            albumArray.add(album);
         }
         return albumArray;
     }
 
+    public static List<PlayList> extractPlaylist(Document doc) {
 
-    private static Document convertStringToXMLDocument(String xmlString)
-    {
-        //Parser that produces DOM object trees from XML content
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        List<PlayList> playlistArray = new ArrayList<>();
+        NodeList playlists = doc.getElementsByTagName("playlist");
 
-        //API to obtain DOM Document instance
-        DocumentBuilder builder = null;
-        try
-        {
-            //Create DocumentBuilder with default configuration
-            builder = factory.newDocumentBuilder();
+        for (int i = 0; i < playlists.getLength(); i++) {
+            PlayList playlist = new PlayList();
+            System.out.println("number of playlist : " + i);
+            Node node = playlists.item(i);
+            List<Resource> resources = new ArrayList<>();
+            List<Chanson> chansons = new ArrayList<>();
+            List<LivreAudio> liveAudios = new ArrayList<>();
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-            //Parse the content to Document object
-            Document doc = builder.parse(new InputSource(new StringReader(xmlString)));
-            return doc;
+                Element element = (Element) node;
+
+                playlist.setId(element.getElementsByTagName("id").item(0).getTextContent());
+                playlist.setNom(element.getElementsByTagName("nom").item(0).getTextContent());
+
+
+                Node nodeResource = element.getElementsByTagName("resources").item(0);
+
+                System.out.println(nodeResource.getTextContent());
+                Element elementResource = (Element) nodeResource;
+
+                NodeList nodeChanson = elementResource.getElementsByTagName("chanson");
+                NodeList nodeLivreAudio = elementResource.getElementsByTagName("livreAudio");
+                System.out.println("nombre de chansons :" + nodeChanson.getLength());
+                for (int j = 0; j < nodeChanson.getLength(); j++) {
+                    Node node1 = nodeChanson.item(j);
+
+                    if (node1.getNodeType() == Node.ELEMENT_NODE) {
+                        Element element1 = (Element) node1;
+                        Chanson chanson = new Chanson();
+
+                        chanson.setTitre(element1.getElementsByTagName("titre").item(0).getTextContent());
+                        chanson.setId(element1.getElementsByTagName("id").item(0).getTextContent());
+                        chanson.setDuree(Integer.parseInt(element1.getElementsByTagName("duree").item(0).getTextContent()));
+                        chanson.setArtiste(element1.getElementsByTagName("artiste").item(0).getTextContent());
+
+                        String genre = element1.getElementsByTagName("genre").item(0).getTextContent();
+
+                        switch (genre) {
+                            case "Pop":
+                                chanson.setGenre(Genre.POP);
+                                break;
+                            case "Jazz":
+                                chanson.setGenre(Genre.JAZZ);
+                                break;
+                            case "Classique":
+                                chanson.setGenre(Genre.CLASSIQUE);
+                                break;
+                            case "Hip-Hop":
+                                chanson.setGenre(Genre.HIP_HOP);
+                                break;
+                            case "Rock":
+                                chanson.setGenre(Genre.ROCK);
+                                break;
+                            case "Rap":
+                                chanson.setGenre(Genre.RAP);
+                                break;
+                        }
+                        chansons.add(chanson);
+                        resources.add(chanson);
+
+
+                    }
+                }
+                for (int j = 0; j < nodeLivreAudio.getLength(); j++) {
+                    Node node1 = nodeLivreAudio.item(j);
+
+                    if (node1.getNodeType() == Node.ELEMENT_NODE) {
+                        Element element1 = (Element) node1;
+                        LivreAudio livreAudio = new LivreAudio();
+
+                        livreAudio.setTitre(element1.getElementsByTagName("titre").item(0).getTextContent());
+                        livreAudio.setId(element1.getElementsByTagName("id").item(0).getTextContent());
+                        livreAudio.setDuree(Integer.parseInt(element1.getElementsByTagName("duree").item(0).getTextContent()));
+                        livreAudio.setAuteur(element1.getElementsByTagName("auteur").item(0).getTextContent());
+
+                        String categorie = element1.getElementsByTagName("categorie").item(0).getTextContent();
+                        String langue = element1.getElementsByTagName("langue").item(0).getTextContent();
+
+                        switch (categorie) {
+                            case "Jeunesse":
+                                livreAudio.setCategorie(Categorie.JEUNESSE);
+                                break;
+                            case "Roman":
+                                livreAudio.setCategorie(Categorie.ROMAN);
+                                break;
+                            case "Théâtre":
+                                livreAudio.setCategorie(Categorie.THEATRE);
+                                break;
+                            case "Discours":
+                                livreAudio.setCategorie(Categorie.DISCOURS);
+                                break;
+                            case "Documentaire":
+                                livreAudio.setCategorie(Categorie.DOCUMENTAIRE);
+                                break;
+                        }
+
+                        switch (langue) {
+                            case "Français":
+                                livreAudio.setLangue(Langues.FRANCAIS);
+                                break;
+                            case "Anglais":
+                                livreAudio.setLangue(Langues.ANGLAIS);
+                                break;
+                            case "Italien":
+                                livreAudio.setLangue(Langues.ITALIEN);
+                                break;
+                            case "Espagnol":
+                                livreAudio.setLangue(Langues.ESPAGNOL);
+                                break;
+                            case "Allemand":
+                                livreAudio.setLangue(Langues.ALLEMAND);
+                                break;
+                        }
+                        liveAudios.add(livreAudio);
+                        resources.add(livreAudio);
+
+
+                    }
+                }
+                playlist.setResources(resources);
+                playlist.setChansons(chansons);
+                playlist.setLivreAudios(liveAudios);
+                playlistArray.add(playlist);
+            }
+
         }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        return null;
+        return playlistArray;
     }
+
+    public static List<Resource> extractResource(Document doc) {
+        Chanson chanson = new Chanson();
+        LivreAudio livreAudio = new LivreAudio();
+        List<Resource> resourcesList = new ArrayList<>();
+
+        NodeList chansonList = doc.getElementsByTagName("chanson");
+        NodeList livreAudioList = doc.getElementsByTagName("livreAudio");
+
+        for (int i = 0; i < chansonList.getLength(); i++) {
+            Node nodeChanson = chansonList.item(i);
+            if (nodeChanson.getNodeType() == Node.ELEMENT_NODE) {
+                Element elementChanson = (Element) nodeChanson;
+
+                chanson.setTitre(elementChanson.getElementsByTagName("titre").item(0).getTextContent());
+                chanson.setId(elementChanson.getElementsByTagName("id").item(0).getTextContent());
+                chanson.setDuree(Integer.parseInt(elementChanson.getElementsByTagName("duree").item(0).getTextContent()));
+                chanson.setArtiste(elementChanson.getElementsByTagName("artiste").item(0).getTextContent());
+
+                String genre = elementChanson.getElementsByTagName("genre").item(0).getTextContent();
+
+                switch (genre) {
+                    case "Pop":
+                        chanson.setGenre(Genre.POP);
+                        break;
+                    case "Jazz":
+                        chanson.setGenre(Genre.JAZZ);
+                        break;
+                    case "Classique":
+                        chanson.setGenre(Genre.CLASSIQUE);
+                        break;
+                    case "Hip-Hop":
+                        chanson.setGenre(Genre.HIP_HOP);
+                        break;
+                    case "Rock":
+                        chanson.setGenre(Genre.ROCK);
+                        break;
+                    case "Rap":
+                        chanson.setGenre(Genre.RAP);
+                        break;
+                }
+
+                resourcesList.add(chanson);
+
+            }
+
+        }
+        for (int i = 0; i < livreAudioList.getLength(); i++) {
+            String categorie;
+            String langue;
+            Node nodelivreAudio = livreAudioList.item(i);
+            if (nodelivreAudio.getNodeType() == Node.ELEMENT_NODE) {
+                Element elementlivreAudio = (Element) nodelivreAudio;
+
+                livreAudio.setTitre(elementlivreAudio.getElementsByTagName("titre").item(0).getTextContent());
+                livreAudio.setId(elementlivreAudio.getElementsByTagName("id").item(0).getTextContent());
+                livreAudio.setDuree(Integer.parseInt(elementlivreAudio.getElementsByTagName("duree").item(0).getTextContent()));
+                livreAudio.setAuteur(elementlivreAudio.getElementsByTagName("auteur").item(0).getTextContent());
+
+                categorie = elementlivreAudio.getElementsByTagName("categorie").item(0).getTextContent();
+                langue = elementlivreAudio.getElementsByTagName("langue").item(0).getTextContent();
+
+                switch (categorie) {
+                    case "Jeunesse":
+                        livreAudio.setCategorie(Categorie.JEUNESSE);
+                        break;
+                    case "Roman":
+                        livreAudio.setCategorie(Categorie.ROMAN);
+                        break;
+                    case "Théâtre":
+                        livreAudio.setCategorie(Categorie.THEATRE);
+                        break;
+                    case "Discours":
+                        livreAudio.setCategorie(Categorie.DISCOURS);
+                        break;
+                    case "Documentaire":
+                        livreAudio.setCategorie(Categorie.DOCUMENTAIRE);
+                        break;
+                }
+
+                switch (langue) {
+                    case "Français":
+                        livreAudio.setLangue(Langues.FRANCAIS);
+                        break;
+                    case "Anglais":
+                        livreAudio.setLangue(Langues.ANGLAIS);
+                        break;
+                    case "Italien":
+                        livreAudio.setLangue(Langues.ITALIEN);
+                        break;
+                    case "Espagnol":
+                        livreAudio.setLangue(Langues.ESPAGNOL);
+                        break;
+                    case "Allemand":
+                        livreAudio.setLangue(Langues.ALLEMAND);
+                        break;
+                }
+
+                resourcesList.add(livreAudio);
+            }
+
+        }
+
+        return resourcesList;
+    }
+
+    public static List<Chanson> extractChansons(Document doc) {
+
+        List<Chanson> chansonsList = new ArrayList<>();
+        NodeList chansonList = doc.getElementsByTagName("chanson");
+
+        for (int i = 0; i < chansonList.getLength(); i++) {
+            Chanson chanson = new Chanson();
+            Node nodeChanson = chansonList.item(i);
+            if (nodeChanson.getNodeType() == Node.ELEMENT_NODE) {
+                Element elementChanson = (Element) nodeChanson;
+
+                chanson.setTitre(elementChanson.getElementsByTagName("titre").item(0).getTextContent());
+                chanson.setId(elementChanson.getElementsByTagName("id").item(0).getTextContent());
+                chanson.setDuree(Integer.parseInt(elementChanson.getElementsByTagName("duree").item(0).getTextContent()));
+                chanson.setArtiste(elementChanson.getElementsByTagName("artiste").item(0).getTextContent());
+
+                String genre = elementChanson.getElementsByTagName("genre").item(0).getTextContent();
+
+                switch (genre) {
+                    case "Pop":
+                        chanson.setGenre(Genre.POP);
+                        break;
+                    case "Jazz":
+                        chanson.setGenre(Genre.JAZZ);
+                        break;
+                    case "Classique":
+                        chanson.setGenre(Genre.CLASSIQUE);
+                        break;
+                    case "Hip-Hop":
+                        chanson.setGenre(Genre.HIP_HOP);
+                        break;
+                    case "Rock":
+                        chanson.setGenre(Genre.ROCK);
+                        break;
+                    case "Rap":
+                        chanson.setGenre(Genre.RAP);
+                        break;
+                }
+
+                chansonsList.add(chanson);
+
+            }
+
+        }
+
+        return chansonsList;
+    }
+
+    public static List<LivreAudio> extractLivreAudio(Document doc) {
+        List<LivreAudio> livreAudioLists = new ArrayList<>();
+        NodeList livreAudioList = doc.getElementsByTagName("livreAudio");
+        String langue;
+        for (int i = 0; i < livreAudioList.getLength(); i++) {
+
+            LivreAudio livreAudio = new LivreAudio();
+            Node nodelivreAudio = livreAudioList.item(i);
+            if (nodelivreAudio.getNodeType() == Node.ELEMENT_NODE) {
+                Element elementlivreAudio = (Element) nodelivreAudio;
+
+                livreAudio.setTitre(elementlivreAudio.getElementsByTagName("titre").item(0).getTextContent());
+                livreAudio.setId(elementlivreAudio.getElementsByTagName("id").item(0).getTextContent());
+                livreAudio.setDuree(Integer.parseInt(elementlivreAudio.getElementsByTagName("duree").item(0).getTextContent()));
+                livreAudio.setAuteur(elementlivreAudio.getElementsByTagName("auteur").item(0).getTextContent());
+
+                langue = elementlivreAudio.getElementsByTagName("langue").item(0).getTextContent();
+
+                System.out.println("voici les langue : " + langue);
+                String categorie = elementlivreAudio.getElementsByTagName("categorie").item(0).getTextContent();
+
+                switch (langue) {
+                    case "Français":
+                        livreAudio.setLangue(Langues.FRANCAIS);
+                        break;
+                    case "Anglais":
+                        livreAudio.setLangue(Langues.ANGLAIS);
+                        break;
+                    case "Italien":
+                        livreAudio.setLangue(Langues.ITALIEN);
+                        break;
+                    case "Espagnol":
+                        livreAudio.setLangue(Langues.ESPAGNOL);
+                        break;
+                    case "Allemand":
+                        livreAudio.setLangue(Langues.ALLEMAND);
+                        break;
+                }
+                switch (categorie) {
+                    case "Jeunesse":
+                        livreAudio.setCategorie(Categorie.JEUNESSE);
+                        break;
+                    case "Roman":
+                        livreAudio.setCategorie(Categorie.ROMAN);
+                        break;
+                    case "Théâtre":
+                        livreAudio.setCategorie(Categorie.THEATRE);
+                        break;
+                    case "Discours":
+                        livreAudio.setCategorie(Categorie.DISCOURS);
+                        break;
+                    case "Documentaire":
+                        livreAudio.setCategorie(Categorie.DOCUMENTAIRE);
+                        break;
+                }
+
+
+                livreAudioLists.add(livreAudio);
+            }
+
+        }
+
+        return livreAudioLists;
+    }
+
+
+
 }
 
