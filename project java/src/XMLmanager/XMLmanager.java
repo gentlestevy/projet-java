@@ -9,7 +9,15 @@ import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -17,6 +25,9 @@ import java.util.List;
 
 public class XMLmanager {
 
+    public static void main(String[] args) {
+
+    }
     public static List<Album> extractAlbum(Document doc) {
 
         ArrayList<Album> albumArray = new ArrayList<>();
@@ -25,7 +36,7 @@ public class XMLmanager {
         for (int i = 0; i < albums.getLength(); i++) {
             Album album = new Album();
             Node node = albums.item(i);
-            List<Chanson> chansons = new ArrayList<Chanson>();
+            List<Chanson> chansons = new ArrayList<>();
             if (node.getNodeType() == Node.ELEMENT_NODE) {
 
                 Element element = (Element) node;

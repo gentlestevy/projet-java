@@ -43,7 +43,7 @@ public class RequestManager {
             client.setPassword(request); // assigne un nouveau mot de passe au client
         }
         if(signInValid){ // si les identifiants du client son valides
-            this.home(socket); // il a accès a la page aux options d'acceuille
+
         }
     }
     public void signUp(Socket socket) throws IOException {

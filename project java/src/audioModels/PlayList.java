@@ -55,6 +55,4 @@ public class PlayList {
     this.nom = nom;
   }
 
-    public void setChansons(List<Chanson> chansons) {
-    }
 }
