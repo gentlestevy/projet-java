@@ -1,0 +1,26 @@
+﻿2021-04-20 12:55:57.646   Log opened. (Time zone: UTC+02:00)
+2021-04-20 12:55:57.646   Setup version: Inno Setup version 5.5.9 (u)
+2021-04-20 12:55:57.646   Original Setup EXE: C:\PROGRA~3\Lenovo\IMCONT~1\SYSTEM~1\LENOVO~2\session\REPOSI~1\WWDF0C~1\Setup.exe
+2021-04-20 12:55:57.646   Setup command line: /SL5="$40784,10108158,180224,C:\PROGRA~3\Lenovo\IMCONT~1\SYSTEM~1\LENOVO~2\session\REPOSI~1\WWDF0C~1\Setup.exe" /VERYSILENT /LOG="C:\Setup.log"
+2021-04-20 12:55:57.646   Windows version: 10.0.19042  (NT platform: Yes)
+2021-04-20 12:55:57.646   64-bit Windows: Yes
+2021-04-20 12:55:57.646   Processor architecture: x64
+2021-04-20 12:55:57.646   User privileges: Administrative
+2021-04-20 12:55:57.647   64-bit install mode: Yes
+2021-04-20 12:55:57.651   Created temporary directory: C:\Windows\TempInst\is-2A6TQ.tmp
+2021-04-20 12:55:57.655   Extracting temporary file: C:\Windows\TempInst\is-2A6TQ.tmp\devcon.exe
+2021-04-20 12:55:57.658   Extracting temporary file: C:\Windows\TempInst\is-2A6TQ.tmp\InstallSetting.exe
+2021-04-20 12:55:57.705   InstallParam=checkled -ledver 2.0.1.16 InstallSettingCode=0
+2021-04-20 12:55:57.721   InstallParam=checkyled -yledver 2.1.1.16 InstallSettingCode=0
+2021-04-20 12:55:57.734   InstallParam=checknetfilter -netfilterver 4.0.0.37 InstallSettingCode=1
+2021-04-20 12:55:57.734   Extracting temporary file: C:\Windows\TempInst\is-2A6TQ.tmp\FBNetFlt.sys
+2021-04-20 12:55:57.737   Extracting temporary file: C:\Windows\TempInst\is-2A6TQ.tmp\FBNetFilter.inf
+2021-04-20 12:55:57.738   Extracting temporary file: C:\Windows\TempInst\is-2A6TQ.tmp\fbnetfilter.cat
+2021-04-20 12:55:57.739   Extracting temporary file: C:\Windows\TempInst\is-2A6TQ.tmp\FBNetFilterInstall.exe
+2021-04-20 12:55:58.160   InstallLedDriver InstallNetDriver=0
+2021-04-20 12:55:58.222   InstallParam=checkxtu -xtu 6.5.2.38 InstallSettingCode=0
+2021-04-20 12:55:58.222   ResultCode=0
+2021-04-20 12:55:58.222   InitializeSetup returned False; aborting.
+2021-04-20 12:55:58.222   Got EAbort exception.
+2021-04-20 12:55:58.223   Deinitializing Setup.
+2021-04-20 12:55:58.223   Log closed.
