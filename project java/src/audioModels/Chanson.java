@@ -6,6 +6,26 @@ public class Chanson extends Resource {
 
   private Genre genre;
 
+  private String albumId;
+
+  private String playlistID;
+
+  public String getPlaylistID() {
+    return playlistID;
+  }
+
+  public void setPlaylistID(String playlistID) {
+    this.playlistID = playlistID;
+  }
+
+  public String getAlbumId() {
+    return albumId;
+  }
+
+  public void setAlbumId(String albumId) {
+    this.albumId = albumId;
+  }
+
   public Genre getGenre() {
     return genre;
   }

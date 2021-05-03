@@ -11,7 +11,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -24,10 +23,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XMLmanager {
+public static String  albumPath;
+public static String  playlistPath;
+public static String  elementPath;
+
 
     public static void main(String[] args) {
 
     }
+
     public static List<Album> extractAlbum(Document doc) {
 
         ArrayList<Album> albumArray = new ArrayList<>();
@@ -36,7 +40,7 @@ public class XMLmanager {
         for (int i = 0; i < albums.getLength(); i++) {
             Album album = new Album();
             Node node = albums.item(i);
-            List<Chanson> chansons = new ArrayList<>();
+            List<Chanson> chansons = new ArrayList<Chanson>();
             if (node.getNodeType() == Node.ELEMENT_NODE) {
 
                 Element element = (Element) node;
@@ -461,38 +465,43 @@ public class XMLmanager {
 
         return livreAudioLists;
     }
+
+
     public static Document writeAlbum(List<Album> albums) throws ParserConfigurationException {
+
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         Document doc = docBuilder.newDocument();
         Element root;
 
-        root = doc.createElement("albums");
-        doc.appendChild(root);
-
-
-        for (int i = 0; i < albums.size(); i++) {
-            Element album = doc.createElement("album");
+         root = doc.createElement("albums");
+         doc.appendChild(root);
+        for (Album album : albums) {
+            Element albume = doc.createElement("album");
+            root.appendChild(albume);
             Element id = doc.createElement("id");
-            id.appendChild(doc.createTextNode(albums.get(i).getId()));
-            album.appendChild(id);
+            id.appendChild(doc.createTextNode(album.getId()));
+            albume.appendChild(id);
 
             Element duree = doc.createElement("duree");
-            duree.appendChild(doc.createTextNode(Integer.toString(albums.get(i).getDuree())));
-            album.appendChild(duree);
+            duree.appendChild(doc.createTextNode(Integer.toString(album.getDuree())));
+            albume.appendChild(duree);
 
             Element artiste = doc.createElement("artiste");
-            artiste.appendChild(doc.createTextNode(albums.get(i).getArtiste()));
-            album.appendChild(artiste);
+            artiste.appendChild(doc.createTextNode(album.getArtiste()));
+            albume.appendChild(artiste);
 
             Element dateDeSortie = doc.createElement("dateDeSortie");
-            dateDeSortie.appendChild(doc.createTextNode(albums.get(i).getDateDeSortie().toString()));
-            album.appendChild(dateDeSortie);
+            dateDeSortie.appendChild(doc.createTextNode(album.getDateDeSortie().toString()));
+            albume.appendChild(dateDeSortie);
 
-            for (int j = 0; j < albums.get(i).getChansons().size(); j++) {
-                List<Chanson> chansons = albums.get(i).getChansons();
+            Element chansonE = doc.createElement("chansons");
+            albume.appendChild(chansonE);
+            for (int j = 0; j < album.getChansons().size(); j++) {
+                List<Chanson> chansons = album.getChansons();
                 Element chanson = doc.createElement("chanson");
-                album.appendChild(chanson);
+                chansonE.appendChild(chanson);
+
 
                 Element idChans = doc.createElement("id");
                 idChans.appendChild(doc.createTextNode(chansons.get(j).getId()));
@@ -509,10 +518,11 @@ public class XMLmanager {
                 Element genre = doc.createElement("genre");
                 genre.appendChild(doc.createTextNode(chansons.get(j).getGenre().toString()));
                 chanson.appendChild(genre);
+                System.out.println("chanson added");
             }
-
-
+            System.out.println("album added");
         }
+
         return doc;
     }
 
@@ -522,13 +532,14 @@ public class XMLmanager {
         Document doc = docBuilder.newDocument();
         Element root;
 
-        root = doc.createElement("playLists");
+        root = doc.createElement("playlists");
         doc.appendChild(root);
 
 
         for (int i = 0; i < playLists.size(); i++) {
-            Element playList = doc.createElement("playList");
-            Element id = doc.createElement("");
+            Element playList = doc.createElement("playlist");
+            root.appendChild(playList);
+            Element id = doc.createElement("id");
             id.appendChild(doc.createTextNode(playLists.get(i).getId()));
             playList.appendChild(id);
 
@@ -536,11 +547,12 @@ public class XMLmanager {
             nom.appendChild(doc.createTextNode(playLists.get(i).getNom()));
             playList.appendChild(nom);
 
-
+            Element resources = doc.createElement("resources");
+            playList.appendChild(resources);
             for (int j = 0; j < playLists.get(i).getChansons().size(); j++) {
                 List<Chanson> chansons = playLists.get(i).getChansons();
                 Element chanson = doc.createElement("chanson");
-                playList.appendChild(chanson);
+                resources.appendChild(chanson);
 
                 Element idChans = doc.createElement("");
                 idChans.appendChild(doc.createTextNode(chansons.get(j).getId()));
@@ -562,7 +574,7 @@ public class XMLmanager {
                 List<LivreAudio> livreAudios = playLists.get(i).getLivreAudios();
 
                 Element elivreAudio = doc.createElement("livreAudio");
-                playList.appendChild(elivreAudio);
+                resources.appendChild(elivreAudio);
 
                 Element idL = doc.createElement("");
                 idL.appendChild(doc.createTextNode(livreAudios.get(j).getId()));
@@ -584,7 +596,7 @@ public class XMLmanager {
                 Element langue = doc.createElement("langue");
                 langue.appendChild(doc.createTextNode(livreAudios.get(j).getLangue().toString()));
                 elivreAudio.appendChild(langue);
-                ;
+
             }
 
 
@@ -606,7 +618,7 @@ public class XMLmanager {
             Element elivreAudio = doc.createElement("livreAudio");
             elements.appendChild(elivreAudio);
 
-            Element id = doc.createElement("");
+            Element id = doc.createElement("id");
             id.appendChild(doc.createTextNode(livreAudio.getId()));
             elivreAudio.appendChild(id);
 
@@ -661,9 +673,67 @@ public class XMLmanager {
             genre.appendChild(doc.createTextNode(chanson.getGenre().toString()));
             eChanson.appendChild(genre);
         }
+
+
         return doc;
     }
+    public static Document writeResource(List<Chanson> chansons,List<LivreAudio> livreAudios) throws ParserConfigurationException {
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc = docBuilder.newDocument();
+        Element elements;
 
+        elements = doc.createElement("elements");
+        doc.appendChild(elements);
+
+
+        for (Chanson chanson : chansons) {
+            Element eChanson = doc.createElement("chanson");
+            elements.appendChild(eChanson);
+
+            Element id = doc.createElement("id");
+            id.appendChild(doc.createTextNode(chanson.getId()));
+            eChanson.appendChild(id);
+
+            Element duree = doc.createElement("duree");
+            duree.appendChild(doc.createTextNode(Integer.toString(chanson.getDuree())));
+            eChanson.appendChild(duree);
+
+            Element artiste = doc.createElement("artiste");
+            artiste.appendChild(doc.createTextNode(chanson.getArtiste()));
+            eChanson.appendChild(artiste);
+
+            Element genre = doc.createElement("genre");
+            genre.appendChild(doc.createTextNode(chanson.getGenre().toString()));
+            eChanson.appendChild(genre);
+        }
+        for (LivreAudio livreAudio : livreAudios) {
+            Element elivreAudio = doc.createElement("livreAudio");
+            elements.appendChild(elivreAudio);
+
+            Element id = doc.createElement("id");
+            id.appendChild(doc.createTextNode(livreAudio.getId()));
+            elivreAudio.appendChild(id);
+
+            Element duree = doc.createElement("duree");
+            duree.appendChild(doc.createTextNode(Integer.toString(livreAudio.getDuree())));
+            elivreAudio.appendChild(duree);
+
+            Element auteur = doc.createElement("auteur");
+            auteur.appendChild(doc.createTextNode(livreAudio.getAuteur()));
+            elivreAudio.appendChild(auteur);
+
+            Element categorie = doc.createElement("categorie");
+            categorie.appendChild(doc.createTextNode(livreAudio.getCategorie().toString()));
+            elivreAudio.appendChild(categorie);
+
+
+            Element langue = doc.createElement("langue");
+            langue.appendChild(doc.createTextNode(livreAudio.getLangue().toString()));
+            elivreAudio.appendChild(langue);
+        }
+        return doc;
+    }
 
     public static Document convertStringToXMLDocument(String xmlString) {
         //Parser that produces DOM object trees from XML content
@@ -692,7 +762,5 @@ public class XMLmanager {
         transformer.transform(domSource, result);
         return writer.toString();
     }
-
-
 }
 
