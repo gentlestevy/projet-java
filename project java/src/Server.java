@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 // Server class
 public class Server
 {
+
     private static  ExecutorService pool = Executors.newFixedThreadPool(4);
     private static ArrayList<ClientHandler> clients = new ArrayList<>();
     public static void main(String[] args) throws IOException
@@ -36,10 +37,10 @@ public class Server
                 pool.execute(clientThread);
 
             }
-            catch (Exception e){
-                s.close(); // fermetrure du serveu
-                e.printStackTrace(); // retrace l'erreur
-            }
+         catch (Exception e){
+            s.close(); // fermetrure du serveu
+            e.printStackTrace(); // retrace l'erreur
+        }
         }
     }
 

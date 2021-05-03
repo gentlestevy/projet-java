@@ -1,7 +1,7 @@
 @startuml
 !define LIGHTBLUE
 !includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
-
+skinparam linetype ortho
 class Server {
 -pool : static ExecutorService
 -clients : static ArrayList<ClientHandler>
@@ -56,8 +56,7 @@ package "fileTransfert"{
 }
 package "XMLmanager"{
 }
-package "soundAPI"{
-}
+
 
 ClientHandler ..|> Runnable : implemente
 ClientHandler -- RequestManager : utlise
@@ -68,5 +67,10 @@ RequestManager -- Validator : utilise
 RequestManager -- SQLqueries : utilise
 RequestManager -- fileTransfert : utilise
 RequestManager -- XMLmanager : utilise
-RequestManager -- soundAPI : utilise
+
+XMLmanager - audioModels
+XMLmanager - "fileTransfert"
+SQLqueries - audioModels
+SQLqueries - userModels
+
 @enduml

@@ -1,0 +1,33 @@
+@startuml
+!define LIGHTBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class Resource {
+-titre : String
+#dureee : int
+#RedDress-PlantUML type : ResourceType
+#chemin : String
+<Setter and getter>
+}
+
+
+class chanson{
+
+ -artiste:String;
+
+ -genre: Genre;
+
+ -albumId:String;
+
+ -playlistID:String;
+}
+
+class LivreAudio {
+-pool : static ExecutorService
+-clients : static ArrayList<ClientHandler>
+
++ static void main(String arg[]);
+}
+
+
+@enduml

@@ -1,8 +1,10 @@
 package SQLqueries;
 
 import userModels.Client;
+import userModels.Genders;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class SignUpQueries implements QueriesInterface {
 

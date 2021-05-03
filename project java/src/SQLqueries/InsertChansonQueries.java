@@ -1,12 +1,21 @@
 package SQLqueries;
 
-import audioModels.Chanson;
+import XMLmanager.XMLmanager;
+import audioModels.*;
+import org.w3c.dom.Document;
 import userModels.Client;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.groupingBy;
 
 public class InsertChansonQueries implements QueriesInterface {
     private static String message;
