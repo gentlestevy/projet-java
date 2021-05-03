@@ -1,15 +1,15 @@
 package userModels;
 
 public enum Genders {
-    FEMME("Femme"), HOMME("Homme");
+FEMME("Femme"), HOMME("Homme");
 
-    private String value;
+private String value;
 
-    Genders(String value){
-        this.value =value;
-    }
-    @Override
+Genders(String value){
+    this.value =value;
+}
+@Override
     public String toString(){
-        return this.value;
-    }
+    return this.value;
+}
 }

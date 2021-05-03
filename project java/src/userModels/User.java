@@ -1,27 +1,31 @@
 package userModels;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
-public class User {
-
-    private String firstname;
+public abstract   class User {
     private int id;
-    public boolean connected;
+    private String firstname;
     private String lastname;
     private String email;
-    private Date date;
     private String password;
+    private LocalDate dateCreation;
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
 
     public int getId() {
         return id;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateCreation(LocalDate date) {
+        this.dateCreation = date;
     }
 
     public String getFirstname() {

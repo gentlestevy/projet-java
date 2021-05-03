@@ -22,7 +22,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26d6e3c9-2578-4d59-9018-a5c79959032c" name="Default Changelist" comment="SignInQueries" />
+    <list default="true" id="26d6e3c9-2578-4d59-9018-a5c79959032c" name="Default Changelist" comment="SignInQueries">
+      <change afterPath="$PROJECT_DIR$/project java/src/SQLqueries/ConnectionInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project java/src/SQLqueries/QueriesInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project java/src/SQLqueries/SignInQueries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project java/src/SQLqueries/SignUpQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/InsertChansonQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/SQLqueries/InsertChansonQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/XMLmanager/XMLmanager.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/XMLmanager/XMLmanager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audi/jazz.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/Chanson.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/audioModels/Chanson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/LivreAudio.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/audioModels/LivreAudio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/PlayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/audioModels/PlayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/fileTransfert/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/fileTransfert/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/soundAPI/AudioServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/soundAPI/OutgoingSoundListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/userModels/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/userModels/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/userModels/Genders.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/userModels/Genders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/userModels/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/userModels/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,16 +64,25 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project java/src/userModels" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java\project java\src\userModels" />
+      <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java\project java\src\SQLqueries" />
+      <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java\project java\src\audioModels" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java\project java\src\userModels" />
       <recent name="$PROJECT_DIR$/project java/src/SQLqueries" />
       <recent name="C:\Users\Amazigh\Desktop\projet-java\project java\src\sqlFile" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="SQLqueries" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
