@@ -22,7 +22,57 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26d6e3c9-2578-4d59-9018-a5c79959032c" name="Default Changelist" comment="SignInQueries" />
+    <list default="true" id="26d6e3c9-2578-4d59-9018-a5c79959032c" name="Default Changelist" comment="projet final">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project java/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/project java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/project java/project java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/Byte.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/Byte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/RequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/RequestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/ConnectionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/ConnectionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/InsertAlbumQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/InsertAlbumQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/InsertChansonQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/InsertChansonQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/InsertLivreAudioQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/InsertLivreAudioQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/InsertPlaylistQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/InsertPlaylistQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/JDBCExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/JDBCExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/QueriesInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/QueriesInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/SelectAlbumQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SelectAlbumQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/SelectChansonQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SelectChansonQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/SelectLivreAudioQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SelectLivreAudioQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/SelectPlaylistQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SelectPlaylistQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/SignInQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SignInQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/SQLqueries/SignUpQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SignUpQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/Component Diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/Component Diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/Diagramme de deploiement .jpg" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/Diagramme de deploiement .jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/InsertAlbumQueries.puml" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/InsertAlbumQueries.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/Séquence .Ajouter un morceau à un album.png" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/Séquence .Ajouter un morceau à un album.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/Séquence Connexion.png" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/Séquence Connexion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/audioModel.puml" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/audioModel.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/classDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/classDiagram.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/diagramme de cas d'utilisation.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/diagramme de cas d'utilisation.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/diagramme de paquets.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/diagramme de paquets.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/UML/séquence .création d'une playlist.png" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/UML/séquence .création d'une playlist.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/XMLmanager/XMLmanager.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/XMLmanager/XMLmanager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/Categorie.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/Categorie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/Chanson.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/Chanson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/Langues.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/Langues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/LivreAudio.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/LivreAudio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/PlayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/PlayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/ResourceFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/ResourceFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/audioModels/ResourceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/audioModels/ResourceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/fileTransfert/FileTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/fileTransfert/FileTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/sqlFile/JMusic (1).sql" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/sqlFile/JMusic (1).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/userModels/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/userModels/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/userModels/Genders.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/userModels/Genders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/userModels/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/userModels/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,16 +93,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project java/src/userModels" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/mysql-connector-java-8.0.24/mysql-connector-java-8.0.24/mysql-connector-java-8.0.24.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java" />
+      <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java\project java\src" />
       <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java\project java\src\userModels" />
       <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java\project java\src\SQLqueries" />
       <recent name="C:\Users\steve\OneDrive\Documents\GitHub\projet-java\project java\src\audioModels" />
@@ -103,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619975423208</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="projet final">
+      <created>1620079883390</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620079883390</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +185,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="SoundAPi" />
     <MESSAGE value="SignUpQueriesQueries" />
-    <option name="LAST_COMMIT_MESSAGE" value="SignUpQueriesQueries" />
+    <MESSAGE value="projet final" />
+    <option name="LAST_COMMIT_MESSAGE" value="projet final" />
   </component>
 </project>
