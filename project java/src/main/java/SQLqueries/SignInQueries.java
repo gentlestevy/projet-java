@@ -15,14 +15,6 @@ public class SignInQueries implements QueriesInterface {
     private static String message;
     private static boolean validSignin = false;
 
-    public static void main(String[] args) {
-        Client client = new Client();
-        client.setEmail("steve@gmail.com");
-        client.setPassword("steveCode");
-        SignInQueries.executeQueries(client);
-        System.out.println(getMessage());
-        client.printInfos();
-    }
     public static void executeQueries(Client client){
         Connection conn;
         PreparedStatement pstmt;

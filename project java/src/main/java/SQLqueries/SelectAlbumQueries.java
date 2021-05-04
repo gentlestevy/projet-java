@@ -18,12 +18,7 @@ import java.util.stream.Collectors;
 public class SelectAlbumQueries implements QueriesInterface {
     private String message;
 
-    public static void main(String[] args) {
-        List<Album> albums = new ArrayList<>();
-        Client client = new Client();
-        client.setId(6);
-        SelectAlbumQueries.executeQueries(client,albums);
-    }
+
     public static void executeQueries(Client client, List<Album> albums) {
         Connection conn;
         PreparedStatement psmt;

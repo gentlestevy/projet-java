@@ -25,29 +25,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26d6e3c9-2578-4d59-9018-a5c79959032c" name="Default Changelist" comment="projet final">
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/ClientHandler.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/RequestManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/Server.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/Setup.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/Validator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/allclasses-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/allclasses-noframe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/constant-values.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/deprecated-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/overview-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/overview-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/package-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project java/javadoc/stylesheet.css" afterDir="false" />
+    <list default="true" id="26d6e3c9-2578-4d59-9018-a5c79959032c" name="Default Changelist" comment="javadoc">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jmusichub/compile.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jmusichub/jmusichub.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jmusichub/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jmusichub/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jmusichub/rapport projet poo djebarri+hajjar.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jmusichub/run.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project java/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/main/java/RequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/RequestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/JDBCExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SelectAlbumQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SelectAlbumQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SignInQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/project java/src/main/java/SQLqueries/SignInQueries.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +69,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/project java" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
@@ -99,7 +91,7 @@
       <recent name="SQLqueries" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.jmusichub-1.0-SNAPSHOT.jar">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server" />
       <module name="project java" />
@@ -107,8 +99,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="jmusichub-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/jmusichub/target/jmusichub-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="project-java-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/project java/target/project-java-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="project java [jar:jar]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jar:jar" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/project java" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.jmusichub-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.project-java-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Maven.project java [jar:jar]" />
         <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
@@ -150,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620080698370</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="javadoc">
+      <created>1620082412761</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620082412761</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +204,7 @@
     <MESSAGE value="SoundAPi" />
     <MESSAGE value="SignUpQueriesQueries" />
     <MESSAGE value="projet final" />
-    <option name="LAST_COMMIT_MESSAGE" value="projet final" />
+    <MESSAGE value="javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc" />
   </component>
 </project>

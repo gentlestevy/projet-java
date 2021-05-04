@@ -28,9 +28,7 @@ public class RequestManager {
     private Document docPlaylist;
     private Document docResources;
 
-    public static void main(String[] args) throws ParserConfigurationException, ClassNotFoundException, TransformerException {
 
-    }
 
     RequestManager(Client client, Album a, PlayList p, Chanson c, LivreAudio l) {
         this.client = client;

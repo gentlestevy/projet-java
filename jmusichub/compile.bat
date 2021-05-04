@@ -1,1 +1,0 @@
-javac -d bin src\esieaa\jmusic\*.java src\esieaa\jmusic\util\*.java  src\esieaa\jmusic\main\*.java src\esieaa\jmusic\business\*.java src\esieaa\jmusic\util\writer\*.java src\esieaa\jmusic\exception\*.java

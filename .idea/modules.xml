@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/jmusichub/jmusichub.iml" filepath="$PROJECT_DIR$/jmusichub/jmusichub.iml" />
       <module fileurl="file://$PROJECT_DIR$/project java/project java.iml" filepath="$PROJECT_DIR$/project java/project java.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/projet-java.iml" filepath="$PROJECT_DIR$/.idea/projet-java.iml" />
     </modules>
