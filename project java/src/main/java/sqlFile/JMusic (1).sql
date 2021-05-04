@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `album` (
   `artiste` varchar(50) NOT NULL,
   `duree` int(11) NOT NULL DEFAULT 0,
   `dateDeSortie` date NOT NULL,
+  `titre` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK__client` (`clientID`),
   CONSTRAINT `FK__client` FOREIGN KEY (`clientID`) REFERENCES `client` (`id`)
